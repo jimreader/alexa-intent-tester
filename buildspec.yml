@@ -4,11 +4,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn assembly:assembly -DdescriptorId=jar-with-dependencies 
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - mvn package
+      - mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies package
 artifacts:
   files:
     - target/alexa-intent-tester-1.0-SNAPSHOT.jar

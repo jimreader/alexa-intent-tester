@@ -3,10 +3,12 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo Build started on `date`
       - mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies package
+  post_build:
+    commands:
+      - aws cloudformation package --template-file samTemplate.yaml --s3-bucket codebuild-eu-west-1-234523542345 --output-template-file NewSamTemplate.yaml
 artifacts:
+  type: zip
   files:
     - target/alexa-intent-tester-1.0-SNAPSHOT-jar-with-dependencies.jar
-    - appspec.yml
-  discard-paths: yes
+    - NewSamTemplate.yaml

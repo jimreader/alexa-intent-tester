@@ -7,6 +7,6 @@ phases:
       - mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies package
 artifacts:
   files:
-    - target/alexa-intent-tester-1.0-SNAPSHOT.jar
+    - target/alexa-intent-tester-1.0-SNAPSHOT-jar-with-dependencies.jar
     - appspec.yml
   discard-paths: yes

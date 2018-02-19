@@ -1,5 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: ./alexa-intent-tester-1.0-SNAPSHOT.jar
+  - source: ./alexa-intent-tester-1.0-SNAPSHOT-jar-with-dependencies.jar
     destination: /tmp

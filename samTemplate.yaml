@@ -5,7 +5,7 @@ Resources:
   SpaceGeekExampleSkil:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: com.amazon.asksdk.spacegeek.SpaceGeekSpeechletRequestStreamHandler
+      Handler: uk.co.jimreader.ait.AlexaIntentTesterSpeechletRequestStreamHandler
       Runtime: java8
       CodeUri: .
       Timeout: 30

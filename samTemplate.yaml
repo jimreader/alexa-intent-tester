@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  SpaceGeekExampleSkil:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: com.amazon.asksdk.spacegeek.SpaceGeekSpeechletRequestStreamHandler
+      Runtime: java8
+      CodeUri: .
+      Timeout: 30
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill

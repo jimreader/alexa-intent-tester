@@ -1,0 +1,19 @@
+TopSellers get top sellers
+TopSellers get best sellers
+TopSellers top products
+TopSellers best products
+HearMore yes
+HearMore yep
+HearMore yeah
+HearMore sure
+HearMore yes please
+HearMore affirmative
+DontHearMore no
+DontHearMore nope
+DontHearMore no thank you
+DontHearMore not now
+DontHearMore negative
+Number the number is {value}
+Number {value}
+DecimalNumber temperature is {whole} point {decimal}
+DecimalNumber {whole} point {decimal}

@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "intent": "TopSellers"
+    },
+    {
+      "intent": "HearMore"
+    },
+    {
+      "intent": "DontHearMore"
+    },
+    {
+      "intent": "Number",
+      "slots": [
+        {
+          "name": "number",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "DecimalNumber",
+      "slots": [
+        {
+          "name": "whole",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "decimal",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

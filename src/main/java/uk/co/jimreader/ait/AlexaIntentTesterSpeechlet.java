@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.amazon.speech.json.SpeechletRequestEnvelope;
 import com.amazon.speech.slu.Intent;
+import com.amazon.speech.slu.Slot;
 import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.SessionEndedRequest;
@@ -52,7 +53,23 @@ public class AlexaIntentTesterSpeechlet implements SpeechletV2 {
 
 		Intent intent = request.getIntent();
 		String intentName = (intent != null) ? intent.getName() : null;
-		PlainTextOutputSpeech speech = getPlainTextOutputSpeech("Your intent was " + intentName);
+		String extras = "";
+
+		if ("Number".equalsIgnoreCase(intentName)) {
+			Slot numberSlot = intent.getSlot("value");
+			extras = "The number was "
+					+ (numberSlot != null && numberSlot.getValue() != null ? numberSlot.getValue() : "not found");
+		} else if ("DecimalNumber".equalsIgnoreCase(intentName)) {
+			Slot wholeSlot = intent.getSlot("whole");
+			Slot decimalSlot = intent.getSlot("decimal");
+			
+			String whole = wholeSlot != null && wholeSlot.getValue() != null ? wholeSlot.getValue() : "not found";
+			String decimal = decimalSlot != null && decimalSlot.getValue() != null ? decimalSlot.getValue() : "not found";
+			
+			extras = "The decimal number was " + whole + "." + decimal;
+		}
+
+		PlainTextOutputSpeech speech = getPlainTextOutputSpeech("Your intent was " + intentName + ". " + extras);
 		return SpeechletResponse.newTellResponse(speech);
 	}
 
